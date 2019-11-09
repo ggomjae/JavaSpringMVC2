@@ -7,7 +7,15 @@ import org.gom.domain.boyVO;
 
 public interface boyMapper 
 {
-	@Select("select * from boy_board where bno > 0")
 	public List<boyVO> getList();
+	
+	public void insert(boyVO boy);
+	
+	public void insertSelectKey(boyVO boy);
+	
+	public boyVO read(Long bno);
+	
+	public int delete(Long bno);
 
+	public int update(boyVO boy);
 }
