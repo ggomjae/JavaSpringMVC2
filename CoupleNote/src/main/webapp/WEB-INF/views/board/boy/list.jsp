@@ -19,10 +19,34 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
+	
+	var result = '<c:out value = "${result}"/>' ;
+	var modal = document.querySelector(".modal");
+	
+	checkModal(result);
+	
+	function checkModal(result)
+	{
+		if(result === '')
+		{
+			return ;
+		}
+		
+		if(parseInt(result) > 0)
+		{
+			$("#modalCon").html(parseInt(result) + "번 등록 !");	
+		}
+		
+		modal.classList.remove("hidden");
+	}
+	
 	$("#registerBtn").on("click", function() {
 		self.location = "/board/boy/register";
 	});
-
+	
+	$("#closeBtn").on("click", function(){
+		modal.classList.add("hidden");
+	});
 });
 </script>
 
@@ -95,6 +119,15 @@ $(document).ready(function(){
             </li>
 
         </ul>
+    </div>
+    
+    <!-- Modal -->
+    <div class="modal hidden">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+            <h1 id="modalCon">I'm a modal</h1>
+            <button id ="closeBtn">❌</button>
+        </div>
     </div>
 </body>
 </html>
