@@ -20,9 +20,8 @@ import lombok.extern.log4j.Log4j;
 public class BoardServiceTests
 {
 	@Setter(onMethod_ = {@Autowired})
-	private girlBoardService service;
-	
-	@Ignore
+	private boyBoardService service;
+
 	@Test
 	public void testRegister()
 	{
@@ -31,7 +30,7 @@ public class BoardServiceTests
 		boy.setContent("새로 작성하는 내용");
 		boy.setWriter("띨띨이");
 		
-		//service.register(boy);
+		service.register(boy);
 		log.info("생성된 게시물의 번호:" + boy.getBno());
 	}
 	
@@ -42,23 +41,26 @@ public class BoardServiceTests
 		service.getList().forEach(girl -> log.info(girl));
 	}
 	
+	@Ignore
 	@Test
 	public void testGet()
 	{
 		log.info(service.get(1L));
 	}
 	
+	@Ignore
 	@Test
 	public void testDelete()
 	{
 		log.info("Result Remove" + service.remove(3L));
 	}
 	
+	@Ignore
 	@Test
 	public void testUpdate()
 	{
-		girlVO girl = service.get(1L);
+		boyVO boy = service.get(1L);
 		
-		log.info("Modify " + service.modify(girl));
+		log.info("Modify " + service.modify(boy));
 	}
 }

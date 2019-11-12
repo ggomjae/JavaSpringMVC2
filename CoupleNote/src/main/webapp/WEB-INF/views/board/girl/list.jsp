@@ -17,6 +17,17 @@
 	</style>
 	
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$("#registerBtn").on("click", function() {
+		self.location = "/board/girl/register";
+	});
+
+});
+</script>
+
 <body>
 	<div id="top">
 	
@@ -29,7 +40,9 @@
 
             <!-- 게시판 목록  -->
             <li>
-                Table
+                <form>
+                    <button id = "registerBtn" type = "button">마음 등록하기</button>
+                </form>
                 <ul id="ulTable">
                     <li>
                         <ul>

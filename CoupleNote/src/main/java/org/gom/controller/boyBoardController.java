@@ -27,6 +27,12 @@ public class boyBoardController
 		model.addAttribute("list",service.getList());
 	}
 	
+	@GetMapping("/register")
+	public void register(Model model)
+	{
+		//
+	}
+	
 	@PostMapping("/register")
 	public String register(boyVO boy, RedirectAttributes rttr)
 	{
