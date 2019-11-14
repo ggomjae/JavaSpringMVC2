@@ -25,9 +25,12 @@ $(document).ready(function(){
 	
 	checkModal(result);
 	
+	history.replaceState({},null,null);
+	
 	function checkModal(result)
 	{
-		if(result === '')
+		
+		if(result === '' || history.state)
 		{
 			return ;
 		}
@@ -58,7 +61,7 @@ $(document).ready(function(){
 
         <ul>
             <!-- 게시판 제목 -->
-            <li>BOY's Board</li>
+            <li>BOY's BOARD</li>
 
             <!-- 게시판 목록  -->
             <li>
@@ -81,10 +84,14 @@ $(document).ready(function(){
                     <li>
                     	<ul>
                             <li><c:out value="${board.bno }" /></li>
-                            <li class="left"><c:out value="${board.title }" /></li>
+                  
+                            <li class="left"><a href ='/board/boy/get?bno=<c:out value = "${board.bno}" />' 
+                            	style="text-decoration:none" id ="aId" ><c:out value="${board.title }" /></a></li>
+                            
                             <li><c:out value="${board.writer }" /></li>
                             <li><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></li>
                             <li><fmt:formatDate pattern="yyyy-MM-dd" value="${board.updateDate }" /></li>
+                            
                         </ul>
                     </li>
                     </c:forEach>

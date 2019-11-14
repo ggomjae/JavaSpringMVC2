@@ -14,11 +14,16 @@
 body {
 	background: #FFFFF0;
 }
+
+input::placeholder {
+	font-weight: bold;
+}
+
 </style>
 </head>
 <body>
 	<div id="wrapper">
-		<form action="" method="post">
+	
 			<fieldset>
 				<legend>뚱바이야기</legend>
 					<div>
@@ -37,11 +42,13 @@ body {
 						<div class="small">전하고 싶은 마음</div>
 						<textarea name="content" placeholder='<c:out value = "${board.content }"/>' disabled="disabled" style="background-color: #FAF0E6;" /></textarea>
 					</div>
-					<input type="submit" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"/>
-					<input type="submit" name="submit" value="수정하기" style = "background: #FFF8DC; color: black;"/>
-				</form>
+					<input type="button" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"
+						onclick="location.href='/board/girl/list'"/>
+					<input type="button" name="submit" value="수정하기" style = "background: #FFF8DC; color: black;"
+						onclick= "location.href='/board/girl/modify?bno=<c:out value = "${board.bno }"/>'">
+				
 			</fieldset>
-		</form>
+		
 	</div>
 </body>
 </html>
