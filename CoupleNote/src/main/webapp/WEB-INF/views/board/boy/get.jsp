@@ -32,7 +32,7 @@ input::placeholder {
 					</div>
 					<div>
 						<input type="text" name="writer" autocomplete="off"
-							placeholder='<c:out value = "${board.writer }"/>' disabled="disabled" style="background-color: #FAF0E6;" />
+							placeholder='<c:out value = "${board.writer }"/>가' disabled="disabled" style="background-color: #FAF0E6;" />
 					</div>
 					<div>
 						<input type="text" name="receiver" autocomplete="off"

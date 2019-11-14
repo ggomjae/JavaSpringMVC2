@@ -132,8 +132,8 @@ $(document).ready(function(){
     <div class="modal hidden">
         <div class="modal__overlay"></div>
         <div class="modal__content">
-            <h1 id="modalCon">I'm a modal</h1>
-            <button id ="closeBtn">❌</button>
+            <h1 id="modalCon">처리가 완료되었습니다.</h1>
+            <button id ="closeBtn">Close</button>
         </div>
     </div>
 </body>
