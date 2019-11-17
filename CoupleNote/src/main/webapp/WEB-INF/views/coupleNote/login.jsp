@@ -12,6 +12,10 @@
 	<title>login</title>
 </head>
 <body>
+		<div id = "left" >
+          <img src="/resources/imgSrc/firstBack.JPG" />
+        </div>
+
         <div class="login-page">
             <div class="form">
               <form class="register-form">
@@ -24,6 +28,7 @@
               <form class="login-form" method="post" action = "/login">
                 <input type="text" placeholder="username" name ="username"/>
                 <input type="password" placeholder="password" name ="password"/>
+                <h5><c:out value="${error }"></c:out></h5>
                 <input type= "hidden" name = "${_csrf.parameterName }" value = "${_csrf.token }">
                 <button class ="loginbtn">login</button>
                 <p class="message">Not registered? <a href="#">Create an account</a></p>

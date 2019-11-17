@@ -12,7 +12,7 @@
 <link href="/resources/vender/css/register.css" rel="stylesheet">
 <style type="text/css">
 body {
-	background: #FFFFF0;
+	
 }
 
 input::placeholder {

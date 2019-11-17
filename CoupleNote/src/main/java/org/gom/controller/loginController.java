@@ -18,7 +18,7 @@ public class loginController
 	{
 		if(error != null)
 		{
-			model.addAttribute("error","login Error Check Your Account ! ");
+			model.addAttribute("error","Login Error Check Your Account ! ");
 		}
 		
 		if(logout != null)

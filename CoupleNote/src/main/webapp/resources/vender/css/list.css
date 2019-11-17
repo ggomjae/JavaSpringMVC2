@@ -1,13 +1,12 @@
+		@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+		
 		body {
             line-height: 2em;
-            font-family: "맑은 고딕";
+            font-family: "Roboto", sans-serif;
+  			-webkit-font-smoothing: antialiased;
+ 			-moz-osx-font-smoothing: grayscale;  
         }
 
-		#top{
-            height: 2px;
-            background: black;
-            margin: 0 0 100px 0;
-        }
         
         ul,li {
             list-style: none;
@@ -18,7 +17,7 @@
 
         #mainWrapper {
             width: 800px;
-            margin: 0 auto;
+            margin: 8% auto;
             /*가운데 정렬*/
         }
 
@@ -36,7 +35,7 @@
 
 
         #ulTable>li:first-child>ul>li {
-            background-color: #c9c9c9;
+            background-color: #FFFFF0;
             font-weight: bold;
             text-align: center;
         }

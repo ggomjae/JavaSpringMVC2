@@ -17,7 +17,7 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler
 			AccessDeniedException accessDeniedException) throws IOException, ServletException 
 	{
 		
-		response.sendRedirect("coupleNote/error");
+		response.sendRedirect("/coupleNote/error");
 		
 	}
 	
