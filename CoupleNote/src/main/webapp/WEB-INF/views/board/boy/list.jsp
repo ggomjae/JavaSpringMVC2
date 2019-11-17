@@ -11,9 +11,15 @@
 	<title>BOY LIST</title>
 	<link href="/resources/vender/css/list.css" rel="stylesheet">
 	<style type="text/css">
-		body{
-					
-		}
+		#otherBtn {
+      	  	background: url( "/resources/imgSrc/girl.JPG" ) no-repeat;
+       		background-size: contain;
+        	border: none;
+        	width: 16px;
+        	height: 32px;
+        	cursor: pointer;
+        	border-radius: 10px;
+        }
 	</style>
 </head>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -43,6 +49,7 @@ $(document).ready(function(){
 		modal.classList.remove("hidden");
 	}
 	
+	
 	$("#registerBtn").on("click", function() {
 		self.location = "/board/boy/register";
 	});
@@ -50,6 +57,13 @@ $(document).ready(function(){
 	$("#closeBtn").on("click", function(){
 		modal.classList.add("hidden");
 	});
+	
+	$("#otherBtn").on("click", function(){
+		self.location = "/board/girl/list";
+	});
+	
+	
+	
 });
 </script>
 
@@ -62,9 +76,13 @@ $(document).ready(function(){
 
             <!-- 게시판 목록  -->
             <li>
-                <form>
-                    <button id = "registerBtn" type = "button">마음 등록하기</button>
+                <form action = "/coupleNote/logout" method="post">
+              		<input type = "hidden" name ="${_csrf.parameterName }" value ="${_csrf.token }" />
+                	<button id = "logoutBtn" class ="sBtn" ></button> 
                 </form>
+                    <input type ="button" id = "otherBtn" class = "sBtn" />
+                    <button id = "registerBtn" type = "button">마음 등록하기</button>
+                
                 <ul id="ulTable">
                     <li>
                         <ul>
@@ -100,7 +118,7 @@ $(document).ready(function(){
             <li>
                 <div id="divPaging">
                     <div>P</div>
-                    <div><b>1</b></div>
+                    <div>1</div>
                     <div>2</div>
                     <div>3</div>
                     <div>4</div>

@@ -13,7 +13,7 @@
 	<security:http>
 	
 		<security:intercept-url pattern="/selection/gender" access="hasRole('ROLE_MEMBER')" />
-	
+		<security:logout logout-url="/coupleNote/logout"  invalidate-session="true" />
 		<security:form-login login-page = "/coupleNote/login" authentication-success-handler-ref="customLoginSuccess"/>
 		<security:access-denied-handler ref ="customAccessDenied"/>
 		
@@ -24,6 +24,8 @@
 		<security:authentication-provider>
 			<security:user-service>
 				<security:user name="gomjae" password = "{noop}gomjae" authorities="ROLE_MEMBER"/>
+				
+				<security:user name="hye" password = "{noop}hye" authorities="ROLE_MEMBER"/>
 			</security:user-service>
 		</security:authentication-provider>	
 	</security:authentication-manager>
