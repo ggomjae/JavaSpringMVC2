@@ -7,13 +7,25 @@
 	http://www.springframework.org/schema/beans 
 	http://springframework.org/schema/beans/spring-beans.xsd">
 	
+	<bean id ="customLoginSuccess" class = "org.gom.security.CustomLoginSuccessHandler"></bean>
+	<bean id ="customAccessDenied" class = "org.gom.security.CustomAccessDeniedHandler"></bean>
+	
 	<security:http>
-		<security:form-login />
+	
+		<security:intercept-url pattern="/selection/gender" access="hasRole('ROLE_MEMBER')" />
+	
+		<security:form-login login-page = "/coupleNote/login" authentication-success-handler-ref="customLoginSuccess"/>
+		<security:access-denied-handler ref ="customAccessDenied"/>
 		
-		</security:http>
 		
-		<security:authentication-manager>
+	</security:http>
 		
-		</security:authentication-manager>
+	<security:authentication-manager>
+		<security:authentication-provider>
+			<security:user-service>
+				<security:user name="gomjae" password = "{noop}gomjae" authorities="ROLE_MEMBER"/>
+			</security:user-service>
+		</security:authentication-provider>	
+	</security:authentication-manager>
 	
 </beans>
