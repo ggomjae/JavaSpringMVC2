@@ -8,6 +8,8 @@ import org.gom.domain.boyVO;
 public interface boyMapper 
 {
 	public List<boyVO> getList();
+
+	public List<boyVO> getListWithPaging();
 	
 	public void insert(boyVO boy);
 	

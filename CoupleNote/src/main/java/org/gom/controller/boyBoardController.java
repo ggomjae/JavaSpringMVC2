@@ -24,7 +24,7 @@ public class boyBoardController
 	@GetMapping("/list")
 	public void list(Model model)
 	{
-		model.addAttribute("list",service.getList());
+		model.addAttribute("list",service.getListWithPaging());
 	}
 	
 	@GetMapping("/register")

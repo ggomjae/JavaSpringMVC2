@@ -9,6 +9,8 @@ public interface girlMapper
 {
 	public List<girlVO> getList();
 	
+	public List<girlVO> getListWithPaging();
+	
 	public void insert(girlVO girl);
 	
 	public void insertSelectKey(girlVO girl);

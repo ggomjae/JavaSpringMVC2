@@ -15,4 +15,6 @@ public interface boyBoardService
 	public boolean remove(Long bno);
 	
 	public List<boyVO> getList();
+	
+	public List<boyVO> getListWithPaging();
 }

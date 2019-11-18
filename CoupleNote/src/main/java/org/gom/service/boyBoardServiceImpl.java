@@ -48,5 +48,11 @@ public class boyBoardServiceImpl implements boyBoardService
 	{
 		return boymapper.getList();
 	}
+	
+	@Override
+	public List<boyVO> getListWithPaging()
+	{
+		return boymapper.getListWithPaging();
+	}
 
 }

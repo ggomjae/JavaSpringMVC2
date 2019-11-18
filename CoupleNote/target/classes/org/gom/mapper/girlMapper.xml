@@ -6,6 +6,12 @@
         <![CDATA[select * from girl_board where bno > 0]]>
 	</select>
 	
+	<select id="getListWithPaging" resultType ="org.gom.domain.girlVO">
+		<![CDATA[
+			select /*+INDEX_DESC(girl_board pk_board) */* from girl_board where bno >0
+		]]>
+	</select>
+	
 	<insert id="insert">
 		insert into girl_board (bno,title,content,writer) values ( girl_seq.nextval , #{title} , #{content} , #{writer} )
 	</insert>

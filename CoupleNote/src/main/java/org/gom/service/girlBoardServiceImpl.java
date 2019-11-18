@@ -48,4 +48,10 @@ public class girlBoardServiceImpl implements girlBoardService
 	{
 		return girlmapper.getList();
 	}
+	
+	@Override
+	public List<girlVO> getListWithPaging()
+	{
+		return girlmapper.getListWithPaging();
+	}
 }
