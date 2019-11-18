@@ -3,13 +3,14 @@ package org.gom.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
+import org.gom.domain.Criteria;
 import org.gom.domain.girlVO;
 
 public interface girlMapper 
 {
 	public List<girlVO> getList();
 	
-	public List<girlVO> getListWithPaging();
+	public List<girlVO> getListWithPaging(Criteria cri);
 	
 	public void insert(girlVO girl);
 	

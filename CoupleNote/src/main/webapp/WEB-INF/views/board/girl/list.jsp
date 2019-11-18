@@ -49,6 +49,14 @@ $(document).ready(function(){
 		modal.classList.remove("hidden");
 	}
 	
+	var actionForm = $("#actionForm");
+	
+	$(".indivPagin a").on("click",function(e){
+		 e.preventDefault();
+		 
+		 actionForm.find("input[name='pageNum']").val($(this).attr("href"));
+		 actionForm.submit();
+	});
 	
 	$("#registerBtn").on("click", function() {
 		self.location = "/board/girl/register";
@@ -74,7 +82,7 @@ $(document).ready(function(){
             <li>GIRL's BOARD</li>
 
             <!-- 게시판 목록  -->
-            <li>
+            
                 <form action = "/coupleNote/logout" method="post">
               		<input type = "hidden" name ="${_csrf.parameterName }" value ="${_csrf.token }" />
               		<button id = "logoutBtn" class ="sBtn" ></button> 
@@ -82,7 +90,7 @@ $(document).ready(function(){
                	
                     <input type ="button" id = "otherBtn" class = "sBtn" />
                     <button id = "registerBtn" type = "button">마음 등록하기</button>
-                
+            <li>    
                 <ul id="ulTable">
                     <li>
                         <ul>
@@ -114,29 +122,27 @@ $(document).ready(function(){
             <!-- 게시판 페이징 영역 -->
             <li>
                 <div id="divPaging">
-                    <div>P</div>
-                    <div><b>1</b></div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>N</div>
+                	<c:if test="${pageMaker.prev }">
+                		<div class ="indivPagin"><a href = "${pageMaker.startPage -1}" style="text-decoration:none">P</a></div>
+                	</c:if>
+                	
+                    <c:forEach var = "num" begin ="${pageMaker.startPage }" end ="${pageMaker.endPage }">
+                	    <div class ="indivPagin ${pageMaker.cri.pageNum == num ? 'active':''}">
+                	    	<a href = "${num}" style="text-decoration:none" >${num }</a>
+                	    </div>
+                    </c:forEach>
+                    
+                    <c:if test="${pageMaker.next }">
+                		<div class ="indivPagin"><a href = "${pageMaker.endPage +1 }" style="text-decoration:none">P</a></div>
+                	</c:if>
+                	<form id ="actionForm" action ="/board/girl/list" method ="get">
+            			<input type ="hidden" name ="pageNum" value = '${pageMaker.cri.pageNum }'>
+            			<input type ="hidden" name ="amount" value = '${pageMaker.cri.amount }'>
+            		</form>
                 </div>
             </li>
-
-            <!-- 검색 폼 영역 -->
-            <li id='liSearchOption'>
-                <div>
-                    <select id='selSearchOption'>
-                        <option value='A'>제목+내용</option>
-                        <option value='T'>제목</option>
-                        <option value='C'>내용</option>
-                    </select>
-                    <input id='txtKeyWord' />
-                    <input type='button' value='검색' />
-                </div>
-            </li>
-
+            
+            
         </ul>
     </div>
     

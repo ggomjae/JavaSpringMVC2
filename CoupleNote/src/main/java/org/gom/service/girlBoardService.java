@@ -2,7 +2,7 @@ package org.gom.service;
 
 import java.util.List;
 
-
+import org.gom.domain.Criteria;
 import org.gom.domain.girlVO;
 
 public interface girlBoardService
@@ -17,5 +17,5 @@ public interface girlBoardService
 	
 	public List<girlVO> getList();
 	
-	public List<girlVO> getListWithPaging();
+	public List<girlVO> getListWithPaging(Criteria cri);
 }

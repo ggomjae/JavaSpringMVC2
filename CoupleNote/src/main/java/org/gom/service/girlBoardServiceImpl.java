@@ -2,6 +2,7 @@ package org.gom.service;
 
 import java.util.List;
 
+import org.gom.domain.Criteria;
 import org.gom.domain.girlVO;
 import org.gom.mapper.girlMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,8 +51,8 @@ public class girlBoardServiceImpl implements girlBoardService
 	}
 	
 	@Override
-	public List<girlVO> getListWithPaging()
+	public List<girlVO> getListWithPaging(Criteria cri)
 	{
-		return girlmapper.getListWithPaging();
+		return girlmapper.getListWithPaging(cri);
 	}
 }

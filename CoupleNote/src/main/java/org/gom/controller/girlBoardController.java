@@ -1,5 +1,7 @@
 package org.gom.controller;
 
+import org.gom.domain.Criteria;
+import org.gom.domain.PageDTO;
 import org.gom.domain.boyVO;
 import org.gom.domain.girlVO;
 import org.gom.service.girlBoardService;
@@ -23,9 +25,11 @@ public class girlBoardController
 	private girlBoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model)
+	public void list(Criteria cri, Model model)
 	{
-		model.addAttribute("list",service.getListWithPaging());
+		log.info(cri.getAmount());
+		model.addAttribute("list",service.getListWithPaging(cri));
+		model.addAttribute("pageMaker", new PageDTO(cri,123));
 	}
 	
 	@GetMapping("/register")

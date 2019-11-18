@@ -8,7 +8,14 @@
 	
 	<select id="getListWithPaging" resultType ="org.gom.domain.girlVO">
 		<![CDATA[
-			select /*+INDEX_DESC(girl_board pk_board) */* from girl_board where bno >0
+			select 
+				bno, title, content, writer, regdate, updatedate
+			from
+			(
+				select /*+INDEX_DESC(girl_board pk_board) */ rownum rn, bno, title, content, writer, regdate, updatedate
+				 from girl_board where rownum <= #{pageNum} * #{amount}
+			)
+			where rn > (#{pageNum} -1) * #{amount}
 		]]>
 	</select>
 	
