@@ -2,6 +2,7 @@ package org.gom.service;
 
 import java.util.List;
 
+import org.gom.domain.Criteria;
 import org.gom.domain.boyVO;
 import org.gom.mapper.boyMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,9 +51,15 @@ public class boyBoardServiceImpl implements boyBoardService
 	}
 	
 	@Override
-	public List<boyVO> getListWithPaging()
+	public List<boyVO> getListWithPaging(Criteria cri)
 	{
-		return boymapper.getListWithPaging();
+		return boymapper.getListWithPaging(cri);
+	}
+	
+	@Override
+	public int getTotalCount(Criteria cri)
+	{
+		return boymapper.getTotalCount(cri);
 	}
 
 }

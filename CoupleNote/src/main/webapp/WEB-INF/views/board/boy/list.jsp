@@ -26,6 +26,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	
+	
 	var result = '<c:out value = "${result}"/>' ;
 	var modal = document.querySelector(".modal");
 	
@@ -62,7 +63,13 @@ $(document).ready(function(){
 		self.location = "/board/girl/list";
 	});
 	
+	var actionForm = $("#actionForm");
 	
+	$("#moreBtn").on("click", function(e){
+		
+		e.preventDefault();
+		actionForm.submit();
+	})
 	
 });
 </script>
@@ -113,32 +120,14 @@ $(document).ready(function(){
                    
                 </ul>
             </li>
-
-            <!-- 게시판 페이징 영역 -->
-            <li>
-                <div id="divPaging">
-                    <div>P</div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                    <div>5</div>
-                    <div>N</div>
-                </div>
-            </li>
-
-            <!-- 검색 폼 영역 -->
-            <li id='liSearchOption'>
-                <div>
-                    <select id='selSearchOption'>
-                        <option value='A'>제목+내용</option>
-                        <option value='T'>제목</option>
-                        <option value='C'>내용</option>
-                    </select>
-                    <input id='txtKeyWord' />
-                    <input type='button' value='검색' />
-                </div>
-            </li>
+          	<form id ="actionForm" action ="/board/boy/list" method ="get">
+          		<input type ="hidden" name ="pageNum" value = '${cri.pageNum }'>
+            	<input type ="hidden" name ="amount" value = '${cri.amount + 10 }' >
+            	
+            	<c:if test="${check }">
+          			<button id ="moreBtn">더 보기</button>
+          		</c:if>
+          	</form>
 
         </ul>
     </div>

@@ -111,7 +111,7 @@
             text-align: left;
         }
         
-        #registerBtn {
+        #registerBtn,#moreBtn {
             float: right;
             background: #FFF8DC;
         	border: none;

@@ -2,6 +2,7 @@ package org.gom.service;
 
 import java.util.List;
 
+import org.gom.domain.Criteria;
 import org.gom.domain.boyVO;
 
 public interface boyBoardService 
@@ -16,5 +17,7 @@ public interface boyBoardService
 	
 	public List<boyVO> getList();
 	
-	public List<boyVO> getListWithPaging();
+	public List<boyVO> getListWithPaging(Criteria cri);
+	
+	public int getTotalCount(Criteria cri);
 }

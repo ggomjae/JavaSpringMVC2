@@ -8,10 +8,16 @@
 	
 	<select id="getListWithPaging" resultType ="org.gom.domain.boyVO">
 		<![CDATA[
-			select /*+INDEX_DESC(boy_board pk_board_two) */* from boy_board where bno >0
+			select 
+				bno, title, content, writer, regdate, updatedate
+			from
+			(
+				select /*+INDEX_DESC(boy_board pk_board_two) */ rownum rn, bno, title, content, writer, regdate, updatedate
+				 from boy_board where rownum <= #{pageNum} * #{amount}
+			)
+			where rn > 0
 		]]>
 	</select>
-	
 	<insert id="insert">
 		insert into boy_board (bno,title,content,writer) values ( boy_seq.nextval , #{title} , #{content} , #{writer} )
 	</insert>
@@ -40,4 +46,8 @@
 		updateDate = sysdate
 		where bno = #{bno}
 	</update>
+	
+	<select id = "getTotalCount" resultType ="int">
+		select count(*) from boy_board where bno > 0
+	</select>
 </mapper>

@@ -1,5 +1,6 @@
 package org.gom.controller;
 
+import org.gom.domain.Criteria;
 import org.gom.domain.boyVO;
 import org.gom.service.boyBoardService;
 import org.springframework.stereotype.Controller;
@@ -22,9 +23,18 @@ public class boyBoardController
 	private boyBoardService service;
 	
 	@GetMapping("/list")
-	public void list(Model model)
+	public void list(Criteria cri,Model model)
 	{
-		model.addAttribute("list",service.getListWithPaging());
+		boolean checkBtn = false;
+		
+		if(cri.getAmount() < service.getTotalCount(cri))
+		{
+			checkBtn = true;
+		}
+		log.info(cri.getAmount());
+		model.addAttribute("check",checkBtn);
+		model.addAttribute("cri",cri);
+		model.addAttribute("list",service.getListWithPaging(cri));
 	}
 	
 	@GetMapping("/register")
