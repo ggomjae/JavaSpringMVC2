@@ -55,4 +55,10 @@ public class girlBoardServiceImpl implements girlBoardService
 	{
 		return girlmapper.getListWithPaging(cri);
 	}
+	
+	@Override
+	public int getTotal(Criteria cri)
+	{
+		return girlmapper.getTotalCount(cri);
+	}
 }

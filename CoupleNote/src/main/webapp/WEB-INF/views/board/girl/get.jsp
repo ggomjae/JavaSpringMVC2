@@ -43,9 +43,9 @@ input::placeholder {
 						<textarea name="content" placeholder='<c:out value = "${board.content }"/>' disabled="disabled" style="background-color: #FAF0E6;" /></textarea>
 					</div>
 					<input type="button" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"
-						onclick="location.href='/board/girl/list'"/>
+						onclick="location.href='/board/girl/list?pageNum=<c:out value = "${cri.pageNum }"/>&amount=<c:out value = "${cri.amount }"/>'">
 					<input type="button" name="submit" value="수정하기" style = "background: #FFF8DC; color: black;"
-						onclick= "location.href='/board/girl/modify?bno=<c:out value = "${board.bno }"/>'">
+						onclick= "location.href='/board/girl/modify?bno=<c:out value = "${board.bno }"/>&pageNum=<c:out value = "${cri.pageNum }"/>&amount=<c:out value = "${cri.amount }"/>'">
 				
 			</fieldset>
 		

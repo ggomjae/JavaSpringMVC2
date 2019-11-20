@@ -54,7 +54,7 @@ input::placeholder {
 					</form>
 					
 					<input type="button" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"
-						onclick="location.href='/board/girl/list'"/>
+						onclick="location.href='/board/girl/list?pageNum=<c:out value = "${cri.pageNum }"/>&amount=<c:out value = "${cri.amount }"/>'">
 			</fieldset>
 		
 	</div>

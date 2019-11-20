@@ -18,4 +18,6 @@ public interface girlBoardService
 	public List<girlVO> getList();
 	
 	public List<girlVO> getListWithPaging(Criteria cri);
+	
+	public int getTotal(Criteria cri);
 }

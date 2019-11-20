@@ -70,6 +70,14 @@ $(document).ready(function(){
 		self.location = "/board/boy/list";
 	});
 	
+	$(".move").on("click", function(e){
+		
+		e.preventDefault();
+		actionForm.append("<input type = 'hidden' name = 'bno' value = '" + $(this).attr("href")+ "'>");
+		actionForm.attr("action" , "/board/girl/get");
+		actionForm.submit();
+	})
+	
 });
 </script>
 
@@ -107,7 +115,7 @@ $(document).ready(function(){
                     <li>
                     	<ul>
                             <li><c:out value="${board.bno }" /></li>
-                            <li class="left"><a href ='/board/girl/get?bno=<c:out value = "${board.bno}" />' 
+                            <li class="left"><a class = 'move' href ='<c:out value = "${board.bno}" />' 
                             	style="text-decoration:none" id ="aId" ><c:out value="${board.title }" /></a></li>
                             <li><c:out value="${board.writer }" /></li>
                             <li><fmt:formatDate pattern="yyyy-MM-dd" value="${board.regdate }" /></li>

@@ -21,4 +21,6 @@ public interface girlMapper
 	public int delete(Long bno);
 	
 	public int update(girlVO girl);
+	
+	public int getTotalCount(Criteria cri);
 }

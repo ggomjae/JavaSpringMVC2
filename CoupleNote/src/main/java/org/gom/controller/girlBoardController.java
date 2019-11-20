@@ -8,6 +8,7 @@ import org.gom.service.girlBoardService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -27,9 +28,10 @@ public class girlBoardController
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model)
 	{
-		log.info(cri.getAmount());
+		int total = service.getTotal(cri);
+		
 		model.addAttribute("list",service.getListWithPaging(cri));
-		model.addAttribute("pageMaker", new PageDTO(cri,123));
+		model.addAttribute("pageMaker", new PageDTO(cri,total));
 	}
 	
 	@GetMapping("/register")
@@ -49,7 +51,7 @@ public class girlBoardController
 	}
 	
 	@GetMapping({"/get","/modify"})
-	public void get(@RequestParam("bno") Long bno, Model model)
+	public void get(@RequestParam("bno") Long bno, @ModelAttribute("cri") Criteria cri, Model model)
 	{
 		model.addAttribute("board", service.get(bno));
 	}
