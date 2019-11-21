@@ -22,8 +22,14 @@
      	  	<button  id ="girlForm" type="submit"></button>  
     	</form>   
 	</div>
+	<c:forEach items="${personStatus}" var="status" >
+		<c:out value="${status.feeling }" />
+	</c:forEach>
+	
 	<div class = "wrapper">
 		이야기를 선택하세요.
 	</div>
+	
+	
 </body>
 </html>
