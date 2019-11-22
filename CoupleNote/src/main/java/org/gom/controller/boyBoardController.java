@@ -31,7 +31,7 @@ public class boyBoardController
 		{
 			checkBtn = true;
 		}
-		log.info(cri.getAmount());
+		
 		model.addAttribute("check",checkBtn);
 		model.addAttribute("cri",cri);
 		model.addAttribute("list",service.getListWithPaging(cri));
