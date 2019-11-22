@@ -28,18 +28,6 @@ public class loginController
 		}
 	}
 	
-	@GetMapping("/logout")
-	public void logoutPageGet()
-	{
-		
-	}
-	
-	@PostMapping("/logout")
-	public void logoutPage()
-	{
-		//
-	}
-	
 	@GetMapping("/error")
 	public void errorPage(Authentication auth, Model model)
 	{

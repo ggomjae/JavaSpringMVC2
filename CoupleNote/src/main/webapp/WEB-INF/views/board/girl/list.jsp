@@ -87,8 +87,8 @@ $(document).ready(function(){
 
         <ul>
             <!-- 게시판 제목 -->
-            <li>GIRL's BOARD</li>
-
+            <li>GIRL's BOARD<div>dssdddddddd</div></li>
+			
             <!-- 게시판 목록  -->
             
                 <form action = "/coupleNote/logout" method="post">
@@ -110,7 +110,7 @@ $(document).ready(function(){
                         </ul>
                     </li>
                     <!-- 게시물이 출력될 영역 -->
-               
+               		
                     <c:forEach items = "${list}" var="board">
                     <li>
                     	<ul>

@@ -25,4 +25,9 @@ public class personServiceImpl implements personService{
 	{
 		return personmapper.getFeeling();
 	}
+	
+	public boolean modify(personVO person)
+	{
+		return 1 == personmapper.update(person);
+	}
 }

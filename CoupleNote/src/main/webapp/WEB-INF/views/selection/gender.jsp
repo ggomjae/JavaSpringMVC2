@@ -13,6 +13,45 @@
 	<link href="/resources/vender/css/gender.css" rel="stylesheet">
 	<title>selection gender</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		var feelingBtnOne = $(".feelingdong");
+		var feelingBtnTwo = $(".feelingDDI");
+		
+		var feelingBtnOneValue =$(".feelingdong").attr("value") ;
+		var feelingBtnTwoValue =$(".feelingDDI").attr("value") ;
+		
+		feelingBtnOneValue *= 1;
+		feelingBtnTwoValue *= 1;
+		
+		var allOneData = { name : "dong", feeling : feelingBtnOneValue };
+		var allTwoData = { name : "DDI", feeling : feelingBtnOneValue };
+		
+		feelingBtnOne.click(function(){
+
+			$.ajax({
+			        type:'post',
+			        url:"/test",
+			        data: JSON.stringify(allOneData),
+			        contentType : "application/json; charset=utf-8",
+			        beforeSend : function(xhr)
+                    {  
+                        xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
+                    },
+			        success:function(data){
+			            alert(data);
+			        },
+			        error:function(jqXHR, textStatus, errorThrown){
+			            alert("error");
+			            
+			        }
+			});
+		});
+	});
+</script>
 <body>
 	<div class = "wrapper">
 		<form action="/board/boy/list" method="get">
@@ -24,26 +63,11 @@
 	</div>
 	<div class ="feelingWrapper">
 		<c:forEach items="${personStatus}" var="status" >
-			<c:choose>
-				<c:when test ="${status.feeling == 1}">
-					<div class ="feeling<c:out value ="${status.name }" />"
-						style = "background-image: url( '/resources/imgSrc/icon1.JPG' )">
-					
-					</div>
-				</c:when>
-				<c:when test ="${status.feeling == 2}">
-					<div class ="feeling<c:out value ="${status.name }" />"
-						style = "background-image: url( '/resources/imgSrc/icon2.JPG' )">
-					
-					</div>
-				</c:when>
-				<c:when test ="${status.feeling == 3}">
-					<div class ="feeling<c:out value ="${status.name }" />"
-						style = "background-image: url( '/resources/imgSrc/icon3.JPG' )">
-					
-					</div>
-				</c:when>
-			</c:choose>	
+			<div class ="feeling<c:out value ="${status.name }" />"
+						value = "${status.feeling}"
+						style = "background-image: url( '/resources/imgSrc/icon<c:out value = "${status.feeling}"/>.JPG');">
+						<c:out value = "${status.feeling}"/>
+			</div>
 		</c:forEach>
 	</div>
 	<div class = "wrapperBottom">

@@ -3,6 +3,7 @@ package org.gom.controller;
 import org.gom.domain.Criteria;
 import org.gom.domain.boyVO;
 import org.gom.service.boyBoardService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,7 @@ public class boyBoardController
 		
 		model.addAttribute("check",checkBtn);
 		model.addAttribute("cri",cri);
+	
 		model.addAttribute("list",service.getListWithPaging(cri));
 	}
 	

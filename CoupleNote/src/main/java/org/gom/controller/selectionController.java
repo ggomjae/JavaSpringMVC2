@@ -1,7 +1,11 @@
 package org.gom.controller;
 
+import javax.print.attribute.standard.Media;
+
+import org.gom.domain.personVO;
 import org.gom.service.boyBoardService;
 import org.gom.service.personService;
+
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,4 +29,5 @@ public class selectionController
 	{
 		model.addAttribute("personStatus",service.getFeeling());
 	}
+
 }

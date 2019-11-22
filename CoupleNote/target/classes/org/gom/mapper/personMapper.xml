@@ -6,5 +6,11 @@
 	<select id="getFeeling" resultType="org.gom.domain.personVO">
        select * from person
 	</select>
-
+	
+	<update id="update">
+		update person
+		set feeling = #{feeling}
+		
+		where name = #{name}
+	</update>
 </mapper>
