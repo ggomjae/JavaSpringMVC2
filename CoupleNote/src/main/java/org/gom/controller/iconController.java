@@ -34,7 +34,7 @@ public class iconController {
 		vo.setFeeling(++tempNumber);
 		
 		return  service.modify(vo) == true
-				? new ResponseEntity<>("success",HttpStatus.OK)
+				? new ResponseEntity<>(Integer.toString(tempNumber),HttpStatus.OK)
 			    : new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 	}
 }

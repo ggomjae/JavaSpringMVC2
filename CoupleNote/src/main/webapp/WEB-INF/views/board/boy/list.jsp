@@ -80,7 +80,13 @@ $(document).ready(function(){
         <ul>
             <!-- 게시판 제목 -->
             <li>BOY's BOARD</li>
-
+			<c:forEach items="${person}" var="status" >
+				<c:if test = "${status.name eq 'dong' }">
+					<div style = "background-image: url( '/resources/imgSrc/icon<c:out value = "${status.feeling}"/>.JPG');"
+						 id = "personStatus">
+					</div>
+				</c:if>
+			</c:forEach>
             <!-- 게시판 목록  -->
             <li>
                 <form action = "/coupleNote/logout" method="post">

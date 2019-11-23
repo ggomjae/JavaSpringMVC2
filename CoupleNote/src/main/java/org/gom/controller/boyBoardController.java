@@ -3,7 +3,7 @@ package org.gom.controller;
 import org.gom.domain.Criteria;
 import org.gom.domain.boyVO;
 import org.gom.service.boyBoardService;
-
+import org.gom.service.personService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +23,8 @@ public class boyBoardController
 {
 	private boyBoardService service;
 	
+	private personService personservice;
+	
 	@GetMapping("/list")
 	public void list(Criteria cri,Model model)
 	{
@@ -35,7 +37,7 @@ public class boyBoardController
 		
 		model.addAttribute("check",checkBtn);
 		model.addAttribute("cri",cri);
-	
+		model.addAttribute("person", personservice.getFeeling());
 		model.addAttribute("list",service.getListWithPaging(cri));
 	}
 	
@@ -49,7 +51,6 @@ public class boyBoardController
 	public String register(boyVO boy, RedirectAttributes rttr)
 	{
 		service.register(boy);
-		
 		rttr.addFlashAttribute("result", boy.getBno());
 		
 		return "redirect:/board/boy/list";
@@ -82,6 +83,4 @@ public class boyBoardController
 		
 		return "redirect:/board/boy/list";
 	}
-	
-	
 }

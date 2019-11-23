@@ -87,10 +87,16 @@ $(document).ready(function(){
 
         <ul>
             <!-- 게시판 제목 -->
-            <li>GIRL's BOARD<div>dssdddddddd</div></li>
+            <li>GIRL's BOARD</li>
 			
             <!-- 게시판 목록  -->
-            
+            <c:forEach items="${person}" var="status" >
+				<c:if test = "${status.name eq 'DDI' }">
+					<div style = "background-image: url( '/resources/imgSrc/icon<c:out value = "${status.feeling}"/>.JPG');"
+						 id = "personStatus">
+					</div>
+				</c:if>
+			</c:forEach>
                 <form action = "/coupleNote/logout" method="post">
               		<input type = "hidden" name ="${_csrf.parameterName }" value ="${_csrf.token }" />
               		<button id = "logoutBtn" class ="sBtn" ></button> 

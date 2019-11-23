@@ -5,6 +5,7 @@ import org.gom.domain.PageDTO;
 import org.gom.domain.boyVO;
 import org.gom.domain.girlVO;
 import org.gom.service.girlBoardService;
+import org.gom.service.personService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,11 +26,14 @@ public class girlBoardController
 {
 	private girlBoardService service;
 	
+	private personService personservice;
+	
 	@GetMapping("/list")
 	public void list(Criteria cri, Model model)
 	{
 		int total = service.getTotal(cri);
 		
+		model.addAttribute("person", personservice.getFeeling());
 		model.addAttribute("list",service.getListWithPaging(cri));
 		model.addAttribute("pageMaker", new PageDTO(cri,total));
 	}
