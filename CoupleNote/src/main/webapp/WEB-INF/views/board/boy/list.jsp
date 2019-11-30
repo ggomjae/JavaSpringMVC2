@@ -36,7 +36,6 @@ $(document).ready(function(){
 	
 	function checkModal(result)
 	{
-		
 		if(result === '' || history.state)
 		{
 			return ;

@@ -11,34 +11,37 @@
 <title>register</title>
 <link href="/resources/vender/css/register.css" rel="stylesheet">
 <style type="text/css">
-body {
-	
-}
+	#wrapper {
+       margin:80px auto;
+    }
 </style>
 </head>
 <body>
 	<div id="wrapper">
 		<form action="" method="post">
 			<fieldset>
-				<legend>이야기</legend>
+				<legend>마음 이야기</legend>
 				<form role = "form" action ="/board/boy/register" method ="post">
 					<div>
+						<div class="small">제목</div>
 						<input type="text" name="title" autocomplete="off"
-							placeholder="제목" />
+							 />
 					</div>
 					<div>
+						<div class="small">마음 발신자</div>
 						<input type="text" name="writer" autocomplete="off"
-							placeholder="마음을 전하는 사람" />
+							 />
 					</div>
 					<div>
+						<div class="small">마음 수신자</div>
 						<input type="text" name="receiver" autocomplete="off"
-							placeholder="뚱바에게" style="background-color: #FAF0E6;" disabled/>
+							placeholder="뚱바에게" style="background-color: #FFF8DC;" disabled/>
 					</div>
 					<div>
 						<div class="small">전하고 싶은 마음</div>
-						<textarea name="content" placeholder="내용"></textarea>
+						<textarea name="content" ></textarea>
 					</div>
-					<input type="submit" name="submit" value="등록하기" />
+					<input id ="regBt" type="submit" name="submit" value="등록하기" />
 				</form>
 			</fieldset>
 		</form>
