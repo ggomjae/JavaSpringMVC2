@@ -50,9 +50,10 @@ public class boyBoardController
 	@PostMapping("/register")
 	public String register(boyVO boy, RedirectAttributes rttr)
 	{
+		log.info(boy);
 		service.register(boy);
 		rttr.addFlashAttribute("result", boy.getBno());
-		
+		log.info(boy);
 		return "redirect:/board/boy/list";
 	}
 	

@@ -11,12 +11,10 @@
 <title>register</title>
 <link href="/resources/vender/css/register.css" rel="stylesheet">
 <style type="text/css">
-body {
-	
-}
-input::placeholder {
-	font-weight: bold;
-}
+#wrapper {
+       margin:80px auto;
+    }
+
 
 </style>
 </head>
@@ -25,8 +23,9 @@ input::placeholder {
 		
 			<fieldset>
 				
-				<legend>수정하즈아</legend>
+				<legend>마음 변경</legend>
 					<form action = "/board/boy/modify" method="post">
+						<div class="small">제목</div>
 						<div>
 							<input type ="hidden" name="bno"  value ='<c:out value = "${board.bno }"/>' />
 							<input type="text" name="title" autocomplete="off" value ='<c:out value = "${board.title }"/>' />
@@ -35,6 +34,7 @@ input::placeholder {
 							<div class="small">전하고 싶은 마음</div>
 							<textarea name="content" ><c:out value = "${board.content }"/></textarea>
 						</div>
+						<div class="small">마음 수신자</div>
 						<div>
 							<input type="hidden" name="writer" value ='<c:out value = "${board.writer }"/>' />
 						</div>
@@ -43,17 +43,17 @@ input::placeholder {
 							<input type ="hidden" name="updateDate" value ='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${board.updateDate }" />' >
 							
 							<input type="text" name="receiver" autocomplete="off"
-								placeholder= "뚱바에게" style="background-color: #FAF0E6;" disabled="disabled" />
+								placeholder= "뚱바에게" style="background-color: #FFF8DC;" disabled="disabled" />
 								
 						</div>
 						
-						<input type="submit" name="submit" value="수정하기" style = "background: #FFF8DC; color: black;"/>
+						<input id = "regBt" type="submit" name="submit" value="수정하기" style = "background: #FFF8DC; color: black;"/>
 					</form>
 					<form action = "/board/boy/remove" method="post">
 						<input type ="hidden" name = "bno" value ='<c:out value = "${board.bno }"/>' />
-						<input type="submit" name="submit" value="마음비우기" style = "background: #CD5C5C; color: black;"/>
+						<input id = "regBt" type="submit" name="submit" value="마음비우기" style = "background: #FFF8DC; color: black;"/>
 					</form>
-					<input type="button" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"
+					<input id = "regBt" type="button" name="submit" value="목록가기" style = "background: #FFF8DC; color: black;"
 						onclick="location.href='/board/boy/list'"/>
 			</fieldset>
 		
