@@ -14,4 +14,6 @@ public class boyVO
 	private String writer;
 	private Date regdate;
 	private Date updateDate;
+	
+	private List<BoardAttachVO> attachList;
 }

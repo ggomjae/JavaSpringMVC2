@@ -24,6 +24,7 @@ public class boyBoardController
 	private boyBoardService service;
 	
 	private personService personservice;
+
 	
 	@GetMapping("/list")
 	public void list(Criteria cri,Model model)

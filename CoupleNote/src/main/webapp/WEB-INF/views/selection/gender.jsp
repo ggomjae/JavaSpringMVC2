@@ -33,10 +33,11 @@
 			        url:"/test",
 			        data: JSON.stringify(allOneData),
 			        contentType : "application/json; charset=utf-8",
-			        beforeSend : function(xhr)
+			        // 아직 CSRF 제대로 된 구현이 되지않아 주석처리
+			       /* beforeSend : function(xhr)  
                     {  
                         xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-                    },
+                    },*/
 			        success:function(data){
 			       		
 			       		$(".feelingdong").attr("value",data);
@@ -62,10 +63,12 @@
 			        url:"/test",
 			        data: JSON.stringify(allTwoData),
 			        contentType : "application/json; charset=utf-8",
+			     // 아직 CSRF 제대로 된 구현이 되지않아 주석처리
+			     /*
 			        beforeSend : function(xhr)
                     {  
                         xhr.setRequestHeader("${_csrf.headerName}", "${_csrf.token}");
-                    },
+                    },*/
 			        success:function(data){
 			       		
 			       		$(".feelingDDI").attr("value",data);

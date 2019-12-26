@@ -31,7 +31,10 @@
                 <h5><c:out value="${error }"></c:out></h5>
                 <input type= "hidden" name = "${_csrf.parameterName }" value = "${_csrf.token }">
                 <button class ="loginbtn">login</button>
-                <p class="message">Not registered? <a href="#">Create an account</a></p>
+                <!--  
+                	<p class="message">Not registered? <a href="#">Create an account</a></p>
+                 -->
+                 <p class="message">임시로 ID,PW 둘다 gomjae 또는 hye 입니다</p>
               </form>
             </div>
          </div>

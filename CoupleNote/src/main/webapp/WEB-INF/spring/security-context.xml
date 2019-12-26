@@ -9,9 +9,9 @@
 	
 	<bean id ="customLoginSuccess" class = "org.gom.security.CustomLoginSuccessHandler"></bean>
 	<bean id ="customAccessDenied" class = "org.gom.security.CustomAccessDeniedHandler"></bean>
+	<bean id ="customPasswordEncoder" class = "org.gom.security.CustomNoOpPasswordEncoder"></bean>
 	
 	<security:http>
-	
 		<security:intercept-url pattern="/selection/gender" access="hasRole('ROLE_MEMBER')" />
 		<security:logout logout-url="/coupleNote/logout"  invalidate-session="true" />
 		<security:form-login login-page = "/coupleNote/login" authentication-success-handler-ref="customLoginSuccess"/>
@@ -23,11 +23,13 @@
 		
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="gomjae" password = "{noop}gomjae" authorities="ROLE_MEMBER"/>
-				
-				<security:user name="hye" password = "{noop}hye" authorities="ROLE_MEMBER"/>
-			</security:user-service>
+			<!--  <security:user-service >
+				 <security:user name="gomjae" password = "{noop}gomjae" authorities="ROLE_MEMBER"/>
+				<security:user name="hye" password = "{noop}hye" authorities="ROLE_MEMBER"/> 
+			</security:user-service> -->
+			
+			<security:jdbc-user-service data-source-ref="dataSource"/>
+			<security:password-encoder ref = "customPasswordEncoder"/>
 		</security:authentication-provider>	
 	</security:authentication-manager>
 	
