@@ -34,7 +34,7 @@
                 <!--  
                 	<p class="message">Not registered? <a href="#">Create an account</a></p>
                  -->
-                 <p class="message">임시로 ID,PW 둘다 gomjae 또는 hye 입니다</p>
+                 <p class="message">임시로 ID,PW 둘다 ggomjae 또는 hye 입니다</p>
               </form>
             </div>
          </div>
